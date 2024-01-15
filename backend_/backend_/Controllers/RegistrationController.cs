@@ -7,5 +7,6 @@ namespace backend_.Controllers
     [ApiController]
     public class RegistrationController : ControllerBase
     {
+        private readonly IConfiguration _configuration;
     }
 }
