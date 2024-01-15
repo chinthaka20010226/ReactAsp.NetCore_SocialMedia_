@@ -46,3 +46,49 @@ Email varchar(50) null,
 IsActive int null,
 CreatedOn datetime
 )
+
+
+
+
+--> View Table,
+
+Select *
+From Registration
+
+Select *
+From Article
+
+Select *
+From News
+
+Select *
+From Event
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
