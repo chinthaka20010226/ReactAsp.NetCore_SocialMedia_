@@ -2,4 +2,6 @@
 
 Create Database <Database Name>
 
+--> Use it,
 
+Use <Database Name>
