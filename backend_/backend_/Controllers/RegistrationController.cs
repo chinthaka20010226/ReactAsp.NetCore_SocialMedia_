@@ -28,5 +28,19 @@ namespace backend_.Controllers
 
             return response;
         }
+
+
+        [HttpPost]
+        [Route("Login")]
+
+        public Response Login(Registration registration)
+        {
+            Response response = new Response();
+            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("sa").ToString());
+            Dal dal = new Dal();
+            response = dal.Login(registration, connection);
+
+            return response;
+        }
     }
 }
