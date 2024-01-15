@@ -1,0 +1,15 @@
+College Social Network Project,
+
+- Users can register and login into the system once their registration is approvedby the admin.
+
+- Once the user loggged in into the system, he/she can write and post and articles on various topic of his/her choice.
+
+- Users can also upload images with their post.
+
+- All Users can view News feed posted by individual user.
+
+- All the user registration will be approved/rejected by the admin as well as, all the post will be kept pending until admin approves/rejects each and every post.
+
+- Admin login has full authority on system, he/she can add/delete Faculty.
+
+- Staff can view user profiles and also can post event who s details will be sent via SMS to User.
