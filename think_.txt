@@ -5,7 +5,11 @@ public List<Registration> listRegistration { get; set; }
      It's a generic list (List<>) that can hold objects of type Registration. 
      The angle brackets (<>) denote a generic type.
 
+
+
 ===============================================================================================
+
+
 
 private readonly IConfiguration _configuration;
 
@@ -16,5 +20,37 @@ private readonly IConfiguration _configuration;
 IConfiguration
 
 - IConfiguration is an interface in ASP.NET Core that provides a way to access configuration settings in your application.
-- Configuration settings include various parameters, such as database connection strings, API keys, and other application-specific settings. 
-- 
+- Configuration settings include various parameters, such as database connection strings, API keys, and other application-specific settings.
+
+public RegistrationController(IConfiguration configuration)
+{
+    _configuration = configuration;
+}
+
+
+
+
+==========================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

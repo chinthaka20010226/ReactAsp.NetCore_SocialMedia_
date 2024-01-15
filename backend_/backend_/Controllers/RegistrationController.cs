@@ -13,5 +13,10 @@ namespace backend_.Controllers
         {
             _configuration = configuration;
         }
+
+        [HttpPost]
+        [Route("Registration")]
+
+
     }
 }
