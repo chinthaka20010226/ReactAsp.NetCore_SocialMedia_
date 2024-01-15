@@ -71,5 +71,69 @@ namespace backend_.Models
             }
             return response;
         }
+
+        public Response AddNews(News news, SqlConnection connection)
+        {
+            Response response = new Response();
+            SqlCommand cmd = new SqlCommand("INSERT INTO News(Title,Content,Email,IsAcctive,CreatedOn) VALUES('"+news.Title+"','"+news.Content+"','"+news.Email+"',1,GETDATE())", connection);
+            connection.Open();
+            int i = cmd.ExecuteNonQuery();
+            connection.Close();
+            if(i > 0)
+            {
+                response.StatusCode = 200;
+                response.StatusMessage = "News Created";
+            }
+            else
+            {
+                response.StatusCode = 100;
+                response.StatusMessage = "News Creation Failed";
+            }
+
+            return response;
+        }
+
+        public Response NewsList(SqlConnection connection)
+        {
+            Response response = new Response();
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM News WHERE IsActive = 1", connection);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            List<News> lstNews = new List<News>();
+            if (dt.Rows.Count > 0)
+            {
+                for(int i = 0; i < dt.Rows.Count; i++)
+                {
+                    News news = new News();
+                    news.Id = Convert.ToInt32(dt.Rows[0]["Id"]);
+                    news.Title = Convert.ToString(dt.Rows[0]["Title"]);
+                    news.Content = Convert.ToString(dt.Rows[0]["Content"]);
+                    news.Email = Convert.ToString(dt.Rows[0]["Email"]);
+                    news.IsActive = Convert.ToInt32(dt.Rows[0]["IsActive"]);
+                    news.CreatedOn = Convert.ToDateTime(dt.Rows[0]["CreatedOn"]);
+                    lstNews.Add(news);
+                }
+                if(lstNews.Count > 0)
+                {
+                    response.StatusCode = 200;
+                    response.StatusMessage = "News data found";
+                    response.listNews = lstNews;
+                }
+                else
+                {
+                    response.StatusCode = 100;
+                    response.StatusMessage = "News data not found";
+                    response.listNews = lstNews;
+                }
+            }
+            else
+            {
+                response.StatusCode = 100;
+                response.StatusMessage = "News data not found";
+                response.listNews = lstNews;
+            }
+
+            return response;
+        }
     }
 }
