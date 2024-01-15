@@ -4,3 +4,17 @@ public List<Registration> listRegistration { get; set; }
 - List<>,
      It's a generic list (List<>) that can hold objects of type Registration. 
      The angle brackets (<>) denote a generic type.
+
+===============================================================================================
+
+private readonly IConfiguration _configuration;
+
+- In C#, the readonly keyword indicates that the field can only be assigned a value during its declaration or within the constructor of the class.
+  Once assigned, the value cannot be changed.
+
+
+IConfiguration
+
+- IConfiguration is an interface in ASP.NET Core that provides a way to access configuration settings in your application.
+- Configuration settings include various parameters, such as database connection strings, API keys, and other application-specific settings. 
+- 
