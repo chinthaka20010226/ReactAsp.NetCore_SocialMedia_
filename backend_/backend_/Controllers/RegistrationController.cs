@@ -22,8 +22,9 @@ namespace backend_.Controllers
         public Response Registration(Registration registration)
         {
             Response response = new Response();
-            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("SNCon").ToString());
-
+            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("sa").ToString());
+            Dal dal = new Dal();
+            response = dal.Registration(registration, connection);
 
             return response;
         }
