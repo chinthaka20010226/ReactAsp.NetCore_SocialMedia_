@@ -1,6 +1,7 @@
 ﻿using backend_.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Data.SqlClient;
 
 namespace backend_.Controllers
 {
@@ -21,6 +22,7 @@ namespace backend_.Controllers
         public Response Registration(Registration registration)
         {
             Response response = new Response();
+            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("SNCon").ToString());
 
 
             return response;
