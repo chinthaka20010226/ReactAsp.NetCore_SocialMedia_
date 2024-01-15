@@ -1,6 +1,6 @@
 ﻿namespace backend_.Models
 {
-    public class Events
+    public class Event
     {
         public int Id { get; set; }
         public String Title { get; set; }
