@@ -42,5 +42,19 @@ namespace backend_.Controllers
 
             return response;
         }
+
+
+        [HttpPost]
+        [Route("UserApproval")]
+
+        public Response UserApproval(Registration registration)
+        {
+            Response response = new Response();
+            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("sa").ToString());
+            Dal dal = new Dal();
+            response = dal.UserApproval(registration, connection);
+
+            return response;
+        }
     }
 }

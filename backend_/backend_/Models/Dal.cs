@@ -51,5 +51,25 @@ namespace backend_.Models
             return response;
 
         }
+
+        public Response UserApproval(Registration registration, SqlConnection connection)
+        {
+            Response response = new Response();
+            SqlCommand cmd = new SqlCommand("UPDATE Registration SET IsApproved = 1 WHERE Id = '"+registration.Id+"' AND IsActive = 1", connection);
+            connection.Open();
+            int i = cmd.ExecuteNonQuery();
+            connection.Close();
+            if(i > 0)
+            {
+                response.StatusCode = 200;
+                response.StatusMessage = "User Approved";
+            }
+            else
+            {
+                response.StatusCode = 100;
+                response.StatusMessage = "User Approval Failed";
+            }
+            return response;
+        }
     }
 }
