@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using backend_.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace backend_.Controllers
@@ -17,6 +18,12 @@ namespace backend_.Controllers
         [HttpPost]
         [Route("Registration")]
 
+        public Response Registration(Registration registration)
+        {
+            Response response = new Response();
 
+
+            return response;
+        }
     }
 }
