@@ -207,5 +207,26 @@ namespace backend_.Models
 
             return response;
         }
+
+        public Response ArticleApproval(Article article, SqlConnection connection)
+        {
+            Response response = new Response();
+            SqlCommand cmd = new SqlCommand("UPDATE Article SET IsApproved = 1 WHERE Id = '" + article.Id + "' AND IsActive = 1", connection);
+            connection.Open();
+            int i = cmd.ExecuteNonQuery();
+            connection.Close();
+            if (i > 0) 
+            {
+                response.StatusCode = 200;
+                response.StatusMessage = "Article Approved";
+            }
+            else
+            {
+                response.StatusCode = 100;
+                response.StatusMessage = "Article Approval Failed";
+            }
+
+            return response;
+        }
     }
 }

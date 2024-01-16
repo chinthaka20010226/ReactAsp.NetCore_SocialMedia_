@@ -41,5 +41,18 @@ namespace backend_.Controllers
 
             return response;
         }
+
+        [HttpPost]
+        [Route("ArticleApproval")]
+
+        public Response ArticleApproval(Article article)
+        {
+            Response response = new Response();
+            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("sa").ToString());
+            Dal dal = new Dal();
+            response = dal.ArticleApproval(article, connection);
+
+            return response;
+        }
     }
 }
