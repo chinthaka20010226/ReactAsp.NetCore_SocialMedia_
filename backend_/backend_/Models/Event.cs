@@ -7,5 +7,6 @@
         public String Content { get; set; }
         public String Email { get; set; }
         public int IsActive { get; set; }
+        public DateTime CreatedOn { get; set; }
     }
 }

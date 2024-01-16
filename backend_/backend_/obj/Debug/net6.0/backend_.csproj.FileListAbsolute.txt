@@ -1,0 +1,7 @@
+D:\new____\project_\ReactAspCore_SocialMedia_\backend_\backend_\obj\Debug\net6.0\backend_.csproj.AssemblyReference.cache
+D:\new____\project_\ReactAspCore_SocialMedia_\backend_\backend_\obj\Debug\net6.0\backend_.GeneratedMSBuildEditorConfig.editorconfig
+D:\new____\project_\ReactAspCore_SocialMedia_\backend_\backend_\obj\Debug\net6.0\backend_.AssemblyInfoInputs.cache
+D:\new____\project_\ReactAspCore_SocialMedia_\backend_\backend_\obj\Debug\net6.0\backend_.AssemblyInfo.cs
+D:\new____\project_\ReactAspCore_SocialMedia_\backend_\backend_\obj\Debug\net6.0\backend_.csproj.CoreCompileInputs.cache
+D:\new____\project_\ReactAspCore_SocialMedia_\backend_\backend_\obj\Debug\net6.0\backend_.MvcApplicationPartsAssemblyInfo.cs
+D:\new____\project_\ReactAspCore_SocialMedia_\backend_\backend_\obj\Debug\net6.0\backend_.MvcApplicationPartsAssemblyInfo.cache

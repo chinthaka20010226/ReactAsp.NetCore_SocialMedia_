@@ -270,5 +270,68 @@ namespace backend_.Models
 
             return response;
         }
+
+        public Response AddEvent(Event events, SqlConnection connection)
+        {
+            Response response = new Response();
+            SqlCommand cmd = new SqlCommand("INSERT INTO Event(Title,Content,Email,IsAcctive,CreatedOn) VALUES('" + events.Title + "','" + events.Content + "','" + events.Email + "',1,GETDATE())", connection);
+            connection.Open();
+            int i = cmd.ExecuteNonQuery();
+            connection.Close();
+            if (i > 0)
+            {
+                response.StatusCode = 200;
+                response.StatusMessage = "Event Created";
+            }
+            else
+            {
+                response.StatusCode = 100;
+                response.StatusMessage = "Event Creation Failed";
+            }
+
+            return response;
+        }
+
+        public Response EventsList(SqlConnection connection)
+        {
+            Response response = new Response();
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Event WHERE IsActive = 1",connection);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            List<Event> lstEvent = new List<Event>();
+            if(dt.Rows.Count > 0)
+            {
+                for(int i = 0; i < dt.Rows.Count; i++)
+                {
+                    Event eve = new Event();
+                    eve.Title = Convert.ToString(dt.Rows[i]["Title"]);
+                    eve.Content = Convert.ToString(dt.Rows[i]["Content"]);
+                    eve.Email = Convert.ToString(dt.Rows[i]["Email"]);
+                    eve.IsActive = Convert.ToInt32(dt.Rows[i]["IsActive"]);
+                    eve.CreatedOn = Convert.ToDateTime(dt.Rows[i]["CreatedOn"]);
+                    lstEvent.Add(eve);
+                }
+                if(lstEvent.Count > 0)
+                {
+                    response.StatusCode = 200;
+                    response.StatusMessage = "Event data found";
+                    response.listEvent = lstEvent;
+                }
+                else
+                {
+                    response.StatusCode = 100;
+                    response.StatusMessage = "Event data not found";
+                    response.listEvent = null;
+                }
+            }
+            else
+            {
+                response.StatusCode = 100;
+                response.StatusMessage = "Event data not found";
+                response.listEvent = null;
+            }
+
+            return response;
+        }
     }
 }
