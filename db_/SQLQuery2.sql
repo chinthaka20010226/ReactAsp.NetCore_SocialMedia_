@@ -40,6 +40,14 @@ IsActive int null,
 CreatedOn datetime
 )
 
+Create Table Staff(
+Id int primary key identity(1,1) not null,
+Name varchar(50) null,
+Email varchar(50) null,
+Password varchar(50) null,
+IsActive int null
+)
+
 Select *
 From Registration
 
