@@ -1,4 +1,6 @@
-﻿namespace backend_.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace backend_.Models
 {
     public class Registration
     {

@@ -13,3 +13,13 @@ College Social Network Project,
 - Admin login has full authority on system, he/she can add/delete Faculty.
 
 - Staff can view user profiles and also can post event who s details will be sent via SMS to User.
+
+
+
+======================================================================================
+
+Articles have two options,
+    -> User created articles(Own).
+    -> Users created articles(All).
+
+therefore, we add property to the Article 'type';

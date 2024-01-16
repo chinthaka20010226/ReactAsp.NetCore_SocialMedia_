@@ -105,12 +105,12 @@ namespace backend_.Models
                 for(int i = 0; i < dt.Rows.Count; i++)
                 {
                     News news = new News();
-                    news.Id = Convert.ToInt32(dt.Rows[0]["Id"]);
-                    news.Title = Convert.ToString(dt.Rows[0]["Title"]);
-                    news.Content = Convert.ToString(dt.Rows[0]["Content"]);
-                    news.Email = Convert.ToString(dt.Rows[0]["Email"]);
-                    news.IsActive = Convert.ToInt32(dt.Rows[0]["IsActive"]);
-                    news.CreatedOn = Convert.ToDateTime(dt.Rows[0]["CreatedOn"]);
+                    news.Id = Convert.ToInt32(dt.Rows[i]["Id"]);
+                    news.Title = Convert.ToString(dt.Rows[i]["Title"]);
+                    news.Content = Convert.ToString(dt.Rows[i]["Content"]);
+                    news.Email = Convert.ToString(dt.Rows[i]["Email"]);
+                    news.IsActive = Convert.ToInt32(dt.Rows[i]["IsActive"]);
+                    news.CreatedOn = Convert.ToDateTime(dt.Rows[i]["CreatedOn"]);
                     lstNews.Add(news);
                 }
                 if(lstNews.Count > 0)
@@ -123,14 +123,86 @@ namespace backend_.Models
                 {
                     response.StatusCode = 100;
                     response.StatusMessage = "News data not found";
-                    response.listNews = lstNews;
+                    response.listNews = null;
                 }
             }
             else
             {
                 response.StatusCode = 100;
                 response.StatusMessage = "News data not found";
-                response.listNews = lstNews;
+                response.listNews = null;
+            }
+
+            return response;
+        }
+
+        public Response AddArticles(Article article, SqlConnection connection)
+        {
+            Response response = new Response();
+            SqlCommand cmd = new SqlCommand("INSERT INTO Article(Title,Content,Email,Image,IsActive,IsApproved) VALUES('"+article.Title+"','"+article.Content+"','"+article.Email+"','"+article.Image+"',1,0)",connection);
+            connection.Open();
+            int i = cmd.ExecuteNonQuery();
+            connection.Close();
+            if(i > 0)
+            {
+                response.StatusCode = 200;
+                response.StatusMessage = "Article Created";
+            }
+            else
+            {
+                response.StatusCode = 100;
+                response.StatusMessage = "Article Created Failed";
+            }
+
+            return response;
+        }
+
+        public Response ArticlesList(Article article, SqlConnection connection)
+        {
+
+            Response response = new Response();
+            SqlDataAdapter da = null;
+            if(article.type == "User")
+            {
+                da =new SqlDataAdapter("SELECT * FROM Article WHERE Email = '"+article.Email+"' AND IsActive = 1", connection);
+            }
+            if(article.type == "Page")
+            {
+                da = new SqlDataAdapter("SELECT * FROM Article WHERE IsActive = 1", connection);
+            }
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            List<Article> lstArticle = new List<Article>();
+            if(dt.Rows.Count > 0)
+            {
+                for(int i = 0; i < dt.Rows.Count; i++)
+                {
+                    Article art = new Article();
+                    art.Title = Convert.ToString(dt.Rows[i]["Title"]);
+                    art.Content = Convert.ToString(dt.Rows[i]["Content"]);
+                    art.Email = Convert.ToString(dt.Rows[i]["Email"]);
+                    art.Image = Convert.ToString(dt.Rows[i]["Image"]);
+                    art.IsActive = Convert.ToInt32(dt.Rows[i]["IsActive"]);
+                    lstArticle.Add(art);
+                }
+                if(lstArticle.Count > 0)
+                {
+                    response.StatusCode = 200;
+                    response.StatusMessage = "Article data found";
+                    response.listArticle = lstArticle;
+                }
+                else
+                {
+                    response.StatusCode = 100;
+                    response.StatusMessage = "Artcile data not found";
+                    response.listArticle = null;
+                }
+            }
+            else
+            {
+                response.StatusCode = 100;
+                response.StatusMessage = "Artcile data not found";
+                response.listArticle = null;
             }
 
             return response;
