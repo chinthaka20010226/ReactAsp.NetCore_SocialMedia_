@@ -28,5 +28,18 @@ namespace backend_.Controllers
 
             return response;
         }
+
+        [HttpPost]
+        [Route("DeleteStaff")]
+
+        public Response DeleteStaff(Staff staff)
+        {
+            Response response = new Response();
+            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("sa").ToString());
+            Dal dal = new Dal();
+            response = dal.DeleteStaff(staff, connection);
+
+            return response;
+        }
     }
 }

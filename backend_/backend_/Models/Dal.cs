@@ -249,5 +249,26 @@ namespace backend_.Models
 
             return response;
         }
+
+        public Response DeleteStaff(Staff staff, SqlConnection connection)
+        {
+            Response response = new Response();
+            SqlCommand cmd = new SqlCommand("DELETE FROM Staff WHERE Id = '"+staff.Id+"',1", connection);
+            connection.Open();
+            int i = cmd.ExecuteNonQuery();
+            connection.Close();
+            if(i > 0)
+            {
+                response.StatusCode = 200;
+                response.StatusMessage = "Staff Delete Succesfull";
+            }
+            else
+            {
+                response.StatusCode = 100;
+                response.StatusMessage = "Staff Delete Failed";
+            }
+
+            return response;
+        }
     }
 }
