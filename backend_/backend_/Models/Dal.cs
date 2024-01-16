@@ -228,5 +228,26 @@ namespace backend_.Models
 
             return response;
         }
+
+        public Response StaffRegistration(Staff staff,SqlConnection connection)
+        {
+            Response response = new Response();
+            SqlCommand cmd = new SqlCommand("INSERT INTO Staff(Id,Name,Email,Password,IsActive) VALUES('"+staff.Id+"','"+staff.Name+"','"+staff.Email+"','"+staff.Password+"',1)",connection);
+            connection.Open();
+            int i = cmd.ExecuteNonQuery();
+            connection.Close();
+            if(i > 0)
+            {
+                response.StatusCode = 200;
+                response.StatusMessage = "Registartion Succefull";
+            }
+            else
+            {
+                response.StatusCode = 100;
+                response.StatusMessage = "Registration Failed";
+            }
+
+            return response;
+        }
     }
 }
