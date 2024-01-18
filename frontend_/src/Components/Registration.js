@@ -57,7 +57,8 @@ function Registration(){
 
                                         <div className="d-flex justify-content-end pt-3">
                                             <button type="button" className="btn btn-light btn-lg">Reset all</button>
-                                            <button type="button" className="btn btn-warning btn-lg ms-2">Submit form</button>
+                                            <button type="button" className="btn btn-warning btn-lg ms-2"
+                                                onClick={(e) => handelSave(e)}>Submit form</button>
                                         </div>
 
                                     </div>
