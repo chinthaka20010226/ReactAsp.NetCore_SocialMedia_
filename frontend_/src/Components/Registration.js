@@ -1,6 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 
 function Registration(){
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [passwor, setPassword] = useState('');
+    const [phoneNo, setPhoneNo] = useState(''); 
+
     const myStyle = {
         borderTopLeftRadius: '.25rem',
         borderBottomLeftRadius: '.25rem'
