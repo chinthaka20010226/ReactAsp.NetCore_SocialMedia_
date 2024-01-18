@@ -253,7 +253,7 @@ namespace backend_.Models
         public Response DeleteStaff(Staff staff, SqlConnection connection)
         {
             Response response = new Response();
-            SqlCommand cmd = new SqlCommand("DELETE FROM Staff WHERE Id = '"+staff.Id+"',1", connection);
+            SqlCommand cmd = new SqlCommand("DELETE FROM Staff WHERE Id = '"+staff.Id+"' AND IsActive = 1", connection);
             connection.Open();
             int i = cmd.ExecuteNonQuery();
             connection.Close();
