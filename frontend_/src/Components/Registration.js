@@ -38,17 +38,20 @@ function Registration(){
                                         </div>
 
                                         <div className="form-outline mb-3">
-                                            <input type="email" id="form3Example8" className="form-control form-control-lg" />
+                                            <input type="email" id="form3Example8" className="form-control form-control-lg" 
+                                                onChange={(e) => setEmail(e.target.value)}/>
                                             <label className="form-label" for="form3Example8">Email</label>
                                         </div>
 
                                         <div className="form-outline mb-3">
-                                            <input type="password" id="form3Example9" className="form-control form-control-lg" />
+                                            <input type="password" id="form3Example9" className="form-control form-control-lg" 
+                                                onChange={(e) => setPassword(e.target.value)}/>
                                             <label className="form-label" for="form3Example9">Password</label>
                                         </div>
 
                                         <div className="form-outline mb-3">
-                                            <input type="text" id="form3Example90" className="form-control form-control-lg" />
+                                            <input type="text" id="form3Example90" className="form-control form-control-lg" 
+                                                onChange={(e) => setPhoneNo(e.target.value)}/>
                                             <label className="form-label" for="form3Example90">PhoneNo</label>
                                         </div>
 
