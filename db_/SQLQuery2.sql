@@ -59,3 +59,6 @@ From News
 
 Select *
 From Event
+
+Select *
+From Staff
