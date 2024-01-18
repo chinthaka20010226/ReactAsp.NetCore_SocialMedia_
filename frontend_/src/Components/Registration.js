@@ -1,10 +1,16 @@
 import React, {useState} from "react";
+import axios from "axios";
 
 function Registration(){
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
-    const [passwor, setPassword] = useState('');
-    const [phoneNo, setPhoneNo] = useState(''); 
+    const [password, setPassword] = useState('');
+    const [phoneNo, setPhoneNo] = useState('');
+
+    const handelSave = (e) => {
+        e.preventDefault();
+        console.log(name, email, password, phoneNo);
+    }
 
     const myStyle = {
         borderTopLeftRadius: '.25rem',
