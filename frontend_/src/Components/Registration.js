@@ -30,7 +30,8 @@ function Registration(){
                                         <div className="row">
                                             <div className="col-md-12 mb-3">
                                                 <div className="form-outline">
-                                                    <input type="text" id="form3Example1m" className="form-control form-control-lg" />
+                                                    <input type="text" id="form3Example1m" className="form-control form-control-lg" 
+                                                        onChange={(e) => setName(e.target.value)}/>
                                                     <label className="form-label" for="form3Example1m">Name</label>
                                                 </div>
                                             </div>
