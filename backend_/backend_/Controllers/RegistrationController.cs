@@ -22,7 +22,8 @@ namespace backend_.Controllers
         public Response Registration(Registration registration)
         {
             Response response = new Response();
-            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("sa").ToString());
+            //Response response = new Response();
+            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("default").ToString());
             Dal dal = new Dal();
             response = dal.Registration(registration, connection);
 
@@ -36,7 +37,7 @@ namespace backend_.Controllers
         public Response Login(Registration registration)
         {
             Response response = new Response();
-            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("sa").ToString());
+            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("default").ToString());
             Dal dal = new Dal();
             response = dal.Login(registration, connection);
 
@@ -50,7 +51,7 @@ namespace backend_.Controllers
         public Response UserApproval(Registration registration)
         {
             Response response = new Response();
-            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("sa").ToString());
+            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("default").ToString());
             Dal dal = new Dal();
             response = dal.UserApproval(registration, connection);
 
@@ -63,7 +64,7 @@ namespace backend_.Controllers
         public Response StaffRegistartion(Staff staff)
         {
             Response response = new Response();
-            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("sa").ToString());
+            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("default").ToString());
             Dal dal = new Dal();
             response = dal.StaffRegistration(staff, connection);
 
@@ -76,7 +77,7 @@ namespace backend_.Controllers
         public Response DeleteStaff(Staff staff)
         {
             Response response = new Response();
-            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("sa").ToString());
+            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("default").ToString());
             Dal dal = new Dal();
             response = dal.DeleteStaff(staff, connection);
 
