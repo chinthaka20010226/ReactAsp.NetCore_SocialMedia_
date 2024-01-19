@@ -8,7 +8,7 @@ namespace backend_.Models
         public Response Registration(Registration registration, SqlConnection connection)
         {
             Response response = new Response();
-            SqlCommand cmd = new SqlCommand("INSER INTO Registration(Name,Email,Password,PhoneNo,IsActive,IsApproved) VALUES('"+registration.Name+ "','"+registration.Email+ "','"+registration.Password+ "','"+registration.PhoneNo+"',1,0)",connection);
+            SqlCommand cmd = new SqlCommand("INSERT INTO Registration(Name,Email,Password,PhoneNo,IsActive,IsApproved) VALUES('"+registration.Name+ "','"+registration.Email+ "','"+registration.Password+ "','"+registration.PhoneNo+"',1,0)",connection);
             connection.Open();
             int i = cmd.ExecuteNonQuery();
             connection.Close();
