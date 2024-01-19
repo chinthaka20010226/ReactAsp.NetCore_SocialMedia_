@@ -22,7 +22,7 @@ namespace backend_.Controllers
         public Response AddNews(News news)
         {
             Response response = new Response();
-            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("sa").ToString());
+            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("default").ToString());
             Dal dal = new Dal();
             response = dal.AddNews(news, connection);
 
@@ -35,7 +35,7 @@ namespace backend_.Controllers
         public Response NewsList()
         {
             Response response = new Response();
-            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("sa").ToString());
+            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("default").ToString());
             Dal dal = new Dal();
             response = dal.NewsList(connection);
 
