@@ -22,7 +22,7 @@ namespace backend_.Controllers
         public Response AddEvent(Event events)
         {
             Response response = new Response();
-            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("sa").ToString());
+            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("default").ToString());
             Dal dal = new Dal();
             response = dal.AddEvent(events, connection);
 
@@ -35,7 +35,7 @@ namespace backend_.Controllers
         public Response EventsList()
         {
             Response response = new Response();
-            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("sa").ToString());
+            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("default").ToString());
             Dal dal = new Dal();
             response = dal.EventsList(connection);
 
