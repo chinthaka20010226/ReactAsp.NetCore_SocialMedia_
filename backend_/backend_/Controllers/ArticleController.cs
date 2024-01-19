@@ -22,7 +22,7 @@ namespace backend_.Controllers
         public Response AddArticles(Article article)
         {
             Response response = new Response();
-            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("sa").ToString());
+            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("default").ToString());
             Dal dal = new Dal();
             response = dal.AddArticles(article, connection);
 
@@ -35,7 +35,7 @@ namespace backend_.Controllers
         public Response ArticlesList(Article article)
         {
             Response response = new Response();
-            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("sa").ToString());
+            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("default").ToString());
             Dal dal = new Dal();
             response = dal.ArticlesList(article,connection);
 
@@ -48,7 +48,7 @@ namespace backend_.Controllers
         public Response ArticleApproval(Article article)
         {
             Response response = new Response();
-            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("sa").ToString());
+            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("default").ToString());
             Dal dal = new Dal();
             response = dal.ArticleApproval(article, connection);
 
