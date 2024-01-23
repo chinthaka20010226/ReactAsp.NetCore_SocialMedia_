@@ -1,13 +1,75 @@
+/* ------ Colors, Fonts variable setup ------ */
+
+:root {
+  --c-background: #46a7f8;
+  --c-light: #ffffff;
+  --c-black: #000000;
+}
+
+/* ------ Global Style ------ */
+
 * {
   margin: 0;
   padding: 0;
 }
 
+/*  */
+
 body {
   overflow-x: hidden;
   margin-left: 100px;
+  background-color: var(--c-light);
+}
+
+.card {
+  background-color: var(--c-light) !important;
 }
 
 .left-box-header {
-  font-size: 50px;
+  font-size: 60px;
+  color: var(--c-light);
+}
+
+.remember-box {
+  width: 260px;
+  /* background-color: #46a7f8; */
+}
+
+.icon-box-description {
+  height: 5rem;
+  font-size: 24px;
+  color: var(--c-light);
+}
+
+
+/* ------ btn ------ */
+
+.btn-01 {
+  background-color: var(--c-light);
+  color: var(--c-black);
+  font-weight: 500;
+}
+
+.btn-info {
+  color: var(--c-light) !important;
+  font-weight: 500 !important;
+}
+
+
+/* ------ ruler ------ */
+.ruler {
+  /* border: 5px solid-black; */
+}
+
+/* ------ icon ------ */
+.icon-box {
+  height: 5rem;
+  font-size: 60px;
+}
+
+/* ------ center-vertically ------ */
+.center-vertically {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
 }

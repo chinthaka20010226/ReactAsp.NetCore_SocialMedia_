@@ -5,7 +5,7 @@ function Registration(){
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [phoneNo, setPhoneNo] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
 
     const handelSave = (e) => {
         e.preventDefault();
@@ -17,7 +17,7 @@ function Registration(){
             Name : name,
             Email : email,
             Password : password,
-            PhoneNo : phoneNo
+            ConfirmPassword: confirmPassword 
         }
 
         axios.post(url,data)
@@ -29,46 +29,39 @@ function Registration(){
         })
     }
 
-    const myStyle = {
-        borderTopLeftRadius: '.25rem',
-        borderBottomLeftRadius: '.25rem'
-    }
-
-    
-
     return(
-        <section className="h-100 bg-white">
+        <section className="vh-100">
             <div className="h-100">
                 <div className="row d-flex justify-content-center align-items-center h-100">
                     <div className="col">
                         <div className="card card-registration">
                             <div className="row g-0">
-                                <div className="col-lg-5 vh-100 d-flex flex-column justify-content-center align-items-center px-3 bg-info">
-                                    <h1 className="left-box-header text-center py-3">Welcome Expensy</h1>
-                                    <p className="text-center">Effortlessly manage your finances with our intuitive expense tracker. Stay in control, track spending,
+                                <div className="col-md-5 vh-100 d-flex flex-column justify-content-center align-items-center px-3 bg-info text-center">
+                                    <h1 className="left-box-header py-3">Welcome Expensy</h1>
+                                    <p>Effortlessly manage your finances with our intuitive expense tracker. Stay in control, track spending,
                                         and achive financial goals seamlessly. Welcome to a smart way to handle your expenses.
                                     </p>
                                 </div>
-                                <div className="col-lg-6">
-                                    <div className="card-body p-md-3 text-black d-flex flex-column justify-content-center align-items-center">
+                                <div className="col-md-6">
+                                    <div className="card-body p-md-3 text-black d-flex flex-column justify-content-center align-items-center h-100">
                                         <div className="row py-3">
-                                            <div className="col-lg-6">
-                                                <div className="d-flex justify-content-end">
-                                                    <button type="button" className="btn btn-light"
+                                            <div className="col-sm-6">
+                                                <div className="d-flex justify-content-center py-2">
+                                                    <button type="button" className="btn btn-01 border px-2"
                                                         onClick={(e) => handelSave(e)}>Sign In</button>
                                                 </div>
                                             </div>
-                                            <div className="col-lg-6">
-                                                <div className="d-flex justify-content-start">
-                                                    <button type="button" className="btn btn-primary"
+                                            <div className="col-sm-6">
+                                                <div className="d-flex justify-content-center py-2">
+                                                    <button type="button" className="btn btn-info"
                                                         onClick={(e) => handelSave(e)}>Register</button>
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <h1 className="text-uppercase text-center py-3">Register</h1>
+                                        <h1 className="text-uppercase text-center py-2">Register</h1>
 
-                                        <div className="py-4">
+                                        <div className="form-outline py-4">
                                             <input type="text" id="form3Example1m" placeholder="Full Name" className="form-control form-control-lg" 
                                                     onChange={(e) => setName(e.target.value)}/>
                                         </div>
@@ -85,11 +78,11 @@ function Registration(){
 
                                         <div className="form-outline py-4">
                                             <input type="password" id="form3Example90" placeholder="Confirm Password" className="form-control form-control-lg" 
-                                                onChange={(e) => setPhoneNo(e.target.value)}/>
+                                                onChange={(e) => setConfirmPassword(e.target.value)}/>
                                         </div>
 
                                         <div className="d-flex justify-content-center py-3">
-                                            <button type="button" className="btn btn-primary"
+                                            <button type="button" className="btn btn-info"
                                                 onClick={(e) => handelSave(e)}>Sign Up</button>
                                         </div>
 
