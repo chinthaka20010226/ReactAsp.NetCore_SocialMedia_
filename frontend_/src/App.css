@@ -48,6 +48,9 @@ body {
   color: var(--c-light);
 }
 
+.side-body {
+  width: 201px;
+}
 
 /* ------ btn ------ */
 
@@ -74,9 +77,24 @@ body {
   font-size: 60px;
 }
 
+.icon-font {
+  font-size: 27px;
+  color: var(--c-black);
+}
+
 /* ------ center-vertically ------ */
 .center-vertically {
   display: flex;
   align-items: center;
   /* justify-content: center; */
+}
+
+
+/* ------ font color ------ */
+.icon-text {
+  color: var(--c-black);
+}
+
+a:hover {
+  background-color: rgb(0, 217, 255);
 }
