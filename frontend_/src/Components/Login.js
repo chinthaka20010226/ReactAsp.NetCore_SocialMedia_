@@ -3,7 +3,7 @@ import React from "react";
 function Login(){
     return(
         <section className="vh-100">
-            <div className="h-100">
+            <div className="h-100 custom-body">
                 <div className="row d-flex justify-content-center align-items-center h-100">
                     <div className="col">
                         <div className="card card-registration">

@@ -13,12 +13,19 @@
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 /*  */
 
 body {
   overflow-x: hidden;
-  margin-left: 100px;
   background-color: var(--c-light);
+}
+
+.custom-body {
+  margin-left: 100px;
 }
 
 .card {
